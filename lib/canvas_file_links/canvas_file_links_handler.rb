@@ -20,9 +20,6 @@
 require_dependency "lib/user_content"
 require_dependency "lib/user_content/files_handler"
 
-
-CANVAS_FILE_LINKS_ENGINE_ROOT = CanvasFileLinks::Engine.root
-
 module UserContent
   class FilesHandler
     class ProcessedUrl
