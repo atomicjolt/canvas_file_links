@@ -17,6 +17,7 @@
 # https://github.com/instructure/canvas-lms/app/controllers/enrollments_api_controller.rb
 
 
+require_dependency "lib/user_content"
 require_dependency "lib/user_content/files_handler"
 
 
@@ -24,13 +25,9 @@ CANVAS_FILE_LINKS_ENGINE_ROOT = CanvasFileLinks::Engine.root
 
 module UserContent
   class FilesHandler
-    class UriMatch < SimpleDelagator
+    class ProcessedUrl
 
       alias canvas_send_url url
-
-      def static?
-        rest.start_with?('/static')
-      end
 
       def url
         if match && match.url && match.url.split("/").last == "static"

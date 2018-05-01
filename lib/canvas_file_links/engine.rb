@@ -36,6 +36,7 @@ module CanvasFileLinks
         },
       )
       require "canvas_file_links/canvas_file_links_controller"
+      require "canvas_file_links/canvas_file_links_handler"
     end
   end
 end
