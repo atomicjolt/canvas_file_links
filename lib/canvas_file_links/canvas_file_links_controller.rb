@@ -25,7 +25,8 @@ class CanvasFileLinksController < ApplicationController
     if params[:course_id] && params[:file_id]
       file = Attachment.find_by_id(params[:file_id])
       if file.present?
-        file_path = Folder.find(file.folder_id).full_name + "/" + file.display_name
+        file_path = Folder.find(file.folder_id).full_name
+        file_path += "/#{file.display_name}"
         static_file_route = ""
         static_file_route += "/courses/#{params[:course_id]}/files/#{params[:file_id]}/"
         static_file_route += file_path
