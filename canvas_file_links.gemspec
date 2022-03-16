@@ -4,7 +4,7 @@ require "canvas_file_links/version"
 
 Gem::Specification.new do |s|
   s.name        = "canvas_file_links"
-  s.version     = CanvasFileLinks::VERSION
+  s.version     = CanvasFileLinks::Version
   s.authors     = ["Atomic Jolt", "Scott Phillips"]
   s.email       = ["scott.phillips@atomicjolt.com"]
   s.homepage    = "https://github.com/atomicjolt/canvas_file_links"

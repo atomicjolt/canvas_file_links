@@ -20,6 +20,7 @@ module CanvasFileLinks
     "Allows for serving files outside of Canvas Chrome that can follow relative paths".freeze
   class Engine < ::Rails::Engine
     config.autoload_paths << File.expand_path(File.join(__FILE__, "../.."))
+    config.eager_load_paths << File.expand_path(File.join(__FILE__, "../.."))
 
     config.to_prepare do
       Canvas::Plugin.register(
@@ -30,13 +31,11 @@ module CanvasFileLinks
         author: "Atomic Jolt",
         author_website: "http://www.atomicjolt.com/",
         description: -> { t(:description, DESCRIPTION) },
-        version: CanvasFileLinks::VERSION,
+        version: CanvasFileLinks::Version,
         settings: {
           valid_contexts: %w{Account Course},
         },
       )
-      require "canvas_file_links/canvas_file_links_controller"
-      require "canvas_file_links/canvas_file_links_handler"
     end
   end
 end
